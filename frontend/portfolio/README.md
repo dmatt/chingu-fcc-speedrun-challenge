@@ -26,5 +26,5 @@ This single page portfolio is created within a static site built with [Jekyll](h
 
 TODO:
 
-- Improve the design of the projects page layout by using a grid and making thumnails larger, and post descriptions smaller
-- Add an "about" section at the top above the projects grid
+- [ ] Improve the design of the projects page layout by using a grid and making thumnails larger, and post descriptions smaller
+- [ ] Add an "about" section at the top above the projects grid

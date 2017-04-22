@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Local Weather</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src='https://rawgit.com/darkskyapp/skycons/master/skycons.js'></script>
+  <script src='local-weather.js'></script>
+</head>
+<body>
+  <div class="page-content">
+    <div class="wrapper">
+      <div id="container-fluid">
+        <div id="weather-card" class="row vertical-center">
+          <div class="col-xs-12 col-md-12">
+            <div>
+              <p id="loading">feeling the air...</p>
+              <p id="currently-temp"><span id="currently-temp-number">?</span><span id="currently-temp-unit">°F</span></p>
+              <p id="currently-location">?</p>        
+              <div class="row">
+                <div class="col-xs-12 col-md-12">
+                  <canvas id="currently-icon">icon</canvas>
+                </div>
+              </div>
+              <p id="currently-summary">?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

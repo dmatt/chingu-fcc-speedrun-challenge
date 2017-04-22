@@ -1,6 +1,6 @@
 # Show the Local Weather
 
-Code available at [https://github.com/dmatt/dmatt.github.io](https://github.com/dmatt/dmatt.github.io)
+[Demo](https://dmatt.github.io/weather)
 
 ## Objective
 Build an app that is functionally similar to this: http://codepen.io/FreeCodeCamp/full/bELRjV.
@@ -14,3 +14,9 @@ Build an app that is functionally similar to this: http://codepen.io/FreeCodeCam
 
 ## Notes
 
+Built with:
+
+- Dark Sky API
+- Google fonts API
+- Google Maps geocode API
+- `navigator.geolocation.getCurrentPosition()`
