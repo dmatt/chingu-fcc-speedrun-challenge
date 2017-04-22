@@ -15,3 +15,16 @@ User Story: I can see thumbnail images of different projects the portfolio creat
 User Story: I navigate to different sections of the webpage by clicking buttons in the navigation.
 
 ## Notes
+
+Code is available at [https://github.com/dmatt/dmatt.github.io](https://github.com/dmatt/dmatt.github.io)
+
+This single page portfolio is created within a static site built with [Jekyll](https:://jekyll.com) and [GitHub pages](https://pages.github.com/). Each project within the portfolio is simply a blog post with the following small tweaks:
+
+- projects are organized into different categories to allow seprate anchors on the page
+- the projects page layout has a header that links to each anchor
+- the projects page layout has thumbnails next to each blog post to provide a visual
+
+TODO:
+
+- Improve the design of the projects page layout by using a grid and making thumnails larger, and post descriptions smaller
+- Add an "about" section at the top above the projects grid

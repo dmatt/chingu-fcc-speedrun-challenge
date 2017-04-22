@@ -1,5 +1,7 @@
 # Show the Local Weather
 
+Code available at [https://github.com/dmatt/dmatt.github.io](https://github.com/dmatt/dmatt.github.io)
+
 ## Objective
 Build an app that is functionally similar to this: http://codepen.io/FreeCodeCamp/full/bELRjV.
 
@@ -11,3 +13,4 @@ Build an app that is functionally similar to this: http://codepen.io/FreeCodeCam
 * User Story: I can push a button to toggle between Fahrenheit and Celsius.
 
 ## Notes
+
