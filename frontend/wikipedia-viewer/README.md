@@ -17,3 +17,31 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 **Hint #3:** Use this link to experiment with Wikipedia's API.
 
 ## Notes
+
+TODO:
+
+- [ ] a nice search bar
+- [ ] realtime search suggestions and autocomplete
+- [ ] a calousel set for interesting wikipedia articles for that day to kickstart interest
+- funny button for Random wiki article view
+- clicking article opens a short description
+  - clicking linked keyword in short description (re-searches & displays) new term description
+  - tracks deepness 
+- donate link (counter?)
+
+TODO (nice to haves):
+
+Components:
+
+- main page un-searched
+- dropdown during search
+  - results and no results state
+- displayed article & description with CTA new window
+- carousel initial interesting results
+- deepness counter (local storage) with animation transition
+
+Design ideas:
+
+- desktop and mobile
+- corousel is swipey on mobile
+- Search and results look nice on mobile
