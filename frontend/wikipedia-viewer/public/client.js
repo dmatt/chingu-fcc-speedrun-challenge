@@ -6,6 +6,7 @@
 
 $(function() {
   console.log('hello world :o');
+
   $('input').keyup(function(event) {
     let query = $('input').val();
     $.ajax({
@@ -28,8 +29,15 @@ $(function() {
     .done(function( data ) {
       console.log("success");
       console.log(data);
-      // TODO: turn all the object info into html elements, ex. data.query.pages[455682].canonicalurl
-      $('<li></li>').text(data.query.pages).appendTo('ul#searches');
+      $('div#searches').empty();
+      let pages = Object.keys(data.query.pages);
+      pages.forEach(function(page) {
+        // Creating a new element with an attribute object.
+        $('<div class="wiki-card"></div>').html($( "<a/>", {
+          html: data.query.pages[page].title,
+          href: data.query.pages[page].canonicalurl
+        })).appendTo('div#searches');
+      });
     })
     .fail(function() {
       console.log("error");
@@ -38,9 +46,10 @@ $(function() {
       console.log("complete");
     });
   });
+  
   $.get('/searches', function(searches) {
     searches.forEach(function(search) {
-      $('<li></li>').text(search).appendTo('ul#searches');
+      $('<li></li>').text(search).appendTo('div#searches');
     });
   });
 
@@ -53,5 +62,4 @@ $(function() {
       $('input').focus();
     });
   });
-
 });

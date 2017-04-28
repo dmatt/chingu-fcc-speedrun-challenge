@@ -18,18 +18,25 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 
 ## Notes
 
+- Used glitch.me node.js template as a starter for this project since it has frontent html, css, js, and backend node code in case I want to extend functionality.
+- completed the ajax request after looking at some examples here https://github.com/florinpop17/chingu-fcc-speedrun-challenge/blob/master/frontend/wikipedia-viewer/src/App.js#L18
+- tried to use `.forEach` on an object but it is an array method. Woops. I think I need to use `jQuery.each()` instead or combine `Object.keys()` and `Array.prototype.forEach()`:
+
+
 TODO:
 
 - [ ] a nice search bar
-- [ ] realtime search suggestions and autocomplete
-- [ ] a calousel set for interesting wikipedia articles for that day to kickstart interest
-- funny button for Random wiki article view
-- clicking article opens a short description
-  - clicking linked keyword in short description (re-searches & displays) new term description
-  - tracks deepness 
-- donate link (counter?)
+- [X] realtime search suggestions
+- [ ] funny button for Random wiki article view
+- [ ] clicking article opens a short description
+- [ ] clicking linked keyword in short description (re-searches & displays) new term description
+- [ ] track "deepness". Deepness = (search query * 1) + (search click * 2)
+- [ ] donate to WikiPedia link (counter?)
 
 TODO (nice to haves):
+
+- [ ] search autocomplete
+- [ ] a calousel set for interesting wikipedia articles for that day to kickstart interest
 
 Components:
 
