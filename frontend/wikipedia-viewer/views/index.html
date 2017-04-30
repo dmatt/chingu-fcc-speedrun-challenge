@@ -16,31 +16,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div class="container">  
     <header>
-      <h1>
+      <h1 class="text-center">
         Wikipedia Knowledge Hole 🕳
       </h1>
     </header>
 
     <main>
-      <p>Oh hi, tell me something you're oh so curious about:</p>
+      <p class="text-center">Oh hi, tell me something you're curious about:</p>
 
-      <div class="input-group">
-         <input type="search" class="form-control" placeholder="Search!">
-         <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-         </span>
-      </div>
+      <form>
+        <div class="form-group">
+          <input type="search" class="form-control" id="wiki-search-form" placeholder="Search">
+        </div>
+      </form>
+
       <section class="searches">
         <div id="searches">
         </div>
       </section>
+
     </main>
 
     <footer>

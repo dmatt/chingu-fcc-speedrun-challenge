@@ -17,13 +17,13 @@ $(function() {
         format: 'json',
         origin: '*',
         // TODO: Understand these at https://en.wikipedia.org/w/api.php or somewhere
-        action: 'query', //
-        generator: 'search', //
-        prop: 'extracts|info', //
-        inprop: 'url', //
-        exsentences: '1', //
-        exlimit: 'max', //
-        gsrsearch: query //
+        action: 'query',
+        generator: 'search',
+        prop: 'extracts|info',
+        inprop: 'url',
+        exsentences: '1',
+        exlimit: 'max',
+        gsrsearch: query
       }
     })
     .done(function( data ) {
@@ -32,7 +32,7 @@ $(function() {
       $('div#searches').empty();
       let pages = Object.keys(data.query.pages);
       pages.forEach(function(page) {
-        // Creating a new element with an attribute object.
+        // Creating a new div and link element with an attribute object.
         $('<div class="wiki-card"></div>').html($( "<a/>", {
           html: data.query.pages[page].title,
           href: data.query.pages[page].canonicalurl
@@ -49,11 +49,11 @@ $(function() {
   
   $.get('/searches', function(searches) {
     searches.forEach(function(search) {
-      $('<li></li>').text(search).appendTo('div#searches');
+      $('<div class="wiki-card"></div>').text(search).appendTo('div#searches');
     });
   });
 
-  $('form').submit(function(event) {
+/*  $('form').submit(function(event) {
     event.preventDefault();
     var search = $('input').val();
     $.post('/searches?' + $.param({search: search}), function() {
@@ -61,5 +61,5 @@ $(function() {
       $('input').val('');
       $('input').focus();
     });
-  });
+  });*/
 });
