@@ -33,7 +33,7 @@ h1 {
 
 .form-group {
   padding: 15px;
-  background-color: cyan;
+  background-color: lightcyan;
   border-radius: 5px;
 }
 
@@ -62,7 +62,5 @@ a {
 
 div.wiki-card {
   background-color: lightyellow;
-  padding: 10px;
-  margin: 5px 0px 5px 0px;
   border-radius: 5px;
 }

@@ -21,28 +21,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="container">  
+    <div class="container">
     <header>
       <h1 class="text-center">
         Wikipedia Knowledge Hole 🕳
       </h1>
     </header>
-
     <main>
       <p class="text-center">Oh hi, tell me something you're curious about:</p>
-
-      <form>
-        <div class="form-group">
-          <input type="search" class="form-control" id="wiki-search-form" placeholder="Search">
-        </div>
-      </form>
-
-      <section class="searches">
+      <div class="row">
+            <form>
+              <div class="form-group">
+                <input type="search" class="form-control" id="wiki-search-form" placeholder="Search">
+              </div>
+            </form>
+      </div>
         <div id="searches">
         </div>
-      </section>
-
     </main>
+
 
     <footer>
       <a href="https://glitch.com">
@@ -50,12 +47,11 @@
       </a>
     </footer>
 
+  </div>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
             crossorigin="anonymous"></script>
     <script src="/client.js"></script>
-
   </body>
-  </div>
 </html>
