@@ -23,6 +23,12 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 - tried to use `.forEach` on an object but it is an array method. Woops. I think I need to use `jQuery.each()` instead or combine `Object.keys()` and `Array.prototype.forEach()`:
 - Learned how to make use of "hoisting" to provide a callback function name to the `success` parameter of the ajax call. Before, I was smushing everything into the .done() method which I'm learning can result in what's called [callback hell](http://callbackhell.com/) and isn't "modular".
 - Finially found a usecase for Bootstrap's `container-fluid`; I wanted the header and background color to be full width. This is what I get for lazily skipping over the documenation about `container-fluid` vs. `container`.
+- Wikimedia API does not return an image URL within the `query` response but it does provide a title of the image. To prevent another API call I found [this solution](http://stackoverflow.com/questions/33689980/get-thumbnail-image-from-wikimedia-commons) to build the URL by replacing spaces with underscores, and assuming the file path by using an MD5 hash of the filename string.
+- However! After trying this for a while, it did not seem to be very reliable to get images for every article.
+	- the `images` object returns all filenames for an article in no particular order and it includes non-useful images like icons. To solve for this, you'd have to "guess" which image is the best, perhaps by matching filename to article name.
+	- the `images` object includes filenames in `.svg` and need to have `.png` appended to the end to prevent a 404 response
+	- sometimes the file path did not match the md5 hash string. I think this might be the case for some images like icons, which is just a problem that results from not knowing what the right image is.
+- I wasn't able to find the answer in documentation but I found the right call parameters by looking at the calls made on https://www.wikipedia.org/ when using that search form. By including the `pageimages` property and the `piprop: 'thumbnail'` parameter Wikipedia would return a thumbnail source URL if there was one available.
 
 
 TODO:

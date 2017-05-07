@@ -14,20 +14,25 @@ $(function() {
       type: 'GET',
       dataType: 'json',
       data: {
-        format: 'json',
-        origin: '*',
         action: 'query',
-        generator: 'search',
-        prop: 'extracts|info|images|pageimages',
+        format: 'json',
+        generator: 'prefixsearch',
+        prop: 'extracts|info|pageprops|pageimages|pageterms',
         inprop: 'url',
+        redirects: true,
         exintro: true,
         explaintext: true,
         exsentences: '1',
-        pithumbsize: '150',
-        piprop: 'original',
+        ppprop: 'displaytitle',
+        piprop: 'thumbnail',
+        pithumbsize: '160',
+        pilimit: '6',
+        wbptterms: 'description',
+        gpssearch: query,
+        gpslimit: '6',
         exlimit: 'max',
-        imlimit: 'max',
-        gsrsearch: query
+        imlimit: 'max',        
+        origin: '*',
       },
       success: paginate
     })
@@ -52,7 +57,7 @@ $(function() {
     });
   }
 
-  // Creates and appends card element for each page of data
+  // Creates and appends card element for each page of data, callback to imageQuery()
   function renderCard(pages, page) {
         // Link element
         let link = $( "<a/>", {
@@ -67,14 +72,30 @@ $(function() {
           class: 'description col-md-8'
         })["0"].outerHTML
 
-        console.log("👋",page)
+        // builds thumnail URL by assuming the slug structure
+        // let filepath = pages[page].images["0"].title.split('File:')[1].split(' ').join('_');
+        // let filename = filepath;
+        // if (filename.slice(-4) === '.svg') {
+        //   filename += '.png'
+        // }
+        // let imageHash = md5(filepath);
+        // console.log(imageHash, imageHash.slice(0, 2), 'cats'.slice(0, 2));
+        // let imageSlug = imageHash[0]+'/'+imageHash.slice(0, 2)+'/'+filepath+'/'+'200px-'+filename;
+        // let imageURL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'+imageSlug;
+        
+        if (pages[page].thumbnail) {
+          var thumb = $( "<div/>", {
+            html: '<img src="'+pages[page].thumbnail.source+'"/>',
+            class: 'thumb col-md-4'
+          })["0"].outerHTML;
+        } else {
+          var thumb = $( "<div/>", {
+            html: '<img src="missing-cat.jpg"/>',
+            class: 'thumb col-md-4'
+          })["0"].outerHTML;
+        }
 
-        // Thumbnail element
-        let encodedImage = encodeURIComponent(pages[page].images["0"].title.split('File:')[1]);
-        let thumb = $( "<div/>", {
-          html: '<img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/'+encodedImage+'"/>',
-          class: 'thumb col-md-4'
-        })["0"].outerHTML
+        console.log('thumb', thumb)
 
         // Info element: combines description and thumb
         let info = $( "<div/>", {
@@ -102,6 +123,8 @@ $(function() {
       $('<div class="wiki-card"></div>').text(search).appendTo('div#searches');
     });
   });
+
+// consider storing a search when the user is done typing a query. How?
 
 /*  $('form').submit(function(event) {
     event.preventDefault();
