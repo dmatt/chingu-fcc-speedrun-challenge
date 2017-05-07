@@ -21,6 +21,8 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 - Used glitch.me node.js template as a starter for this project since it has frontent html, css, js, and backend node code in case I want to extend functionality.
 - completed the ajax request after looking at some examples here https://github.com/florinpop17/chingu-fcc-speedrun-challenge/blob/master/frontend/wikipedia-viewer/src/App.js#L18
 - tried to use `.forEach` on an object but it is an array method. Woops. I think I need to use `jQuery.each()` instead or combine `Object.keys()` and `Array.prototype.forEach()`:
+- Learned how to make use of "hoisting" to provide a callback function name to the `success` parameter of the ajax call. Before, I was smushing everything into the .done() method which I'm learning can result in what's called [callback hell](http://callbackhell.com/) and isn't "modular".
+- Finially found a usecase for Bootstrap's `container-fluid`; I wanted the header and background color to be full width. This is what I get for lazily skipping over the documenation about `container-fluid` vs. `container`.
 
 
 TODO:

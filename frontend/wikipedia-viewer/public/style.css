@@ -8,9 +8,17 @@
   box-sizing: border-box;
 }
 
+.header {
+  background: transparent url(//c.disquscdn.com/next/de49d54/marketing/assets/img/home/hero-bg.png) center center no-repeat;
+  background-size: 120%;
+  background-color: lightcyan;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
+}
+}
+
 body {
   font-family: helvetica, arial, sans-serif;
-  margin: 25px;
 }
 
 h1 {
@@ -31,9 +39,13 @@ h1 {
   font-size: 16px;
 }
 
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
 .form-group {
   padding: 15px;
-  background-color: lightcyan;
   border-radius: 5px;
 }
 
@@ -52,12 +64,17 @@ footer > a {
 }
 
 a {
-    color: #BBBBBB
-    text-decoration: none;
+  color: #BBBBBB
+  text-decoration: none;
 }
 
 .nicejob {
   text-decoration: line-through;
+}
+
+.search-results {
+  margin-left: 20px;
+  margin-right: 20px;  
 }
 
 div.wiki-card {
