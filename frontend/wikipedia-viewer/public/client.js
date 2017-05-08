@@ -6,6 +6,8 @@
 
 $(function() {
   console.log('hello world :o');
+  let cardTemplate = $( "#card-template" );
+  cardTemplate.hide();
 
   // AJAX search query to WikiPedia, callback to paginate()
   function wikiQuery(query) {
@@ -52,66 +54,31 @@ $(function() {
     console.log(data);
     $('div#searches').empty();
     let pages = Object.keys(data.query.pages);
-    pages.forEach(function(page){
-      renderCard(data.query.pages, page);
+    pages.forEach(function(page, i){
+      renderCard(data.query.pages, page, i);
     });
   }
 
   // Creates and appends card element for each page of data, callback to imageQuery()
-  function renderCard(pages, page) {
-        // Link element
-        let link = $( "<a/>", {
-          html: pages[page].title,
-          href: pages[page].canonicalurl,
-          class: 'card-link col-md-12'
-        })["0"].outerHTML
-
-        // Description element
-        let description = $( "<div/>", {
-          html: pages[page].extract,
-          class: 'description col-md-8'
-        })["0"].outerHTML
-
-        // builds thumnail URL by assuming the slug structure
-        // let filepath = pages[page].images["0"].title.split('File:')[1].split(' ').join('_');
-        // let filename = filepath;
-        // if (filename.slice(-4) === '.svg') {
-        //   filename += '.png'
-        // }
-        // let imageHash = md5(filepath);
-        // console.log(imageHash, imageHash.slice(0, 2), 'cats'.slice(0, 2));
-        // let imageSlug = imageHash[0]+'/'+imageHash.slice(0, 2)+'/'+filepath+'/'+'200px-'+filename;
-        // let imageURL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'+imageSlug;
-        
+  function renderCard(pages, page, i) {
+        newCard = cardTemplate.clone().hide()
+        newCard
+          .prop('id', 'card-' + i)
+        newCard.find( '.link' )
+          .prop('href', pages[page].canonicalurl)
+          .html(pages[page].title)
+        newCard.find( '.description' )
+          .html(pages[page].extract)
         if (pages[page].thumbnail) {
-          var thumb = $( "<div/>", {
-            html: '<img src="'+pages[page].thumbnail.source+'"/>',
-            class: 'thumb col-md-4'
-          })["0"].outerHTML;
+          newCard.find( '.thumb' )
+            .prop('src', pages[page].thumbnail.source)
         } else {
-          var thumb = $( "<div/>", {
-            html: '<img src="missing-cat.jpg"/>',
-            class: 'thumb col-md-4'
-          })["0"].outerHTML;
+          newCard.find( '.thumb' )
+            .prop('src', '')
         }
-
-        console.log('thumb', thumb)
-
-        // Info element: combines description and thumb
-        let info = $( "<div/>", {
-          html: description + thumb,
-          class: 'row'
-        })["0"].outerHTML
-
-        // Creating a new card div
-        let card = $( "<div/>", {
-          html: link + info,
-          class: 'wiki-card row well'
-        })
-        // Append the card to our search results
-        card.appendTo('div#searches');
+        newCard.appendTo('div#searches').show()
       }
-
+      
   // handles search input during typing, callback to wikiQuery()
   $('input').keyup(function(event) {
     wikiQuery($('input').val());
