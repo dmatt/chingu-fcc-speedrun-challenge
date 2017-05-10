@@ -19,8 +19,11 @@ $(function() {
         action: 'query',
         format: 'json',
         generator: 'prefixsearch',
-        prop: 'extracts|info|pageprops|pageimages|pageterms',
+        prop: 'extracts|info|pageprops|pageimages|iwlinks',
+        iwprop: 'url',
         inprop: 'url',
+        iwprefix: true,
+        iwlimit: '10',
         redirects: true,
         exintro: true,
         explaintext: true,
@@ -64,16 +67,17 @@ $(function() {
         newCard = cardTemplate.clone().hide()
         newCard
           .prop('id', 'card-' + i)
-        newCard.find( '.link' )
+        newCard.find( '.card-title' )
+          .prop('text', pages[page].title)
+        newCard.find( '.btn' )
           .prop('href', pages[page].canonicalurl)
-          .html(pages[page].title)
-        newCard.find( '.description' )
+        newCard.find( '.card-text' )
           .html(pages[page].extract)
         if (pages[page].thumbnail) {
-          newCard.find( '.thumb' )
+          newCard.find( '.card-img-top' )
             .prop('src', pages[page].thumbnail.source)
         } else {
-          newCard.find( '.thumb' )
+          newCard.find( '.card-img-top' )
             .prop('src', '')
         }
         newCard.appendTo('div#searches').show()
