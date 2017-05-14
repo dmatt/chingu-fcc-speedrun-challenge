@@ -30,8 +30,8 @@ $(function() {
         exsentences: '1',
         ppprop: 'displaytitle',
         piprop: 'thumbnail',
-        pithumbsize: '300',
-        pilimit: '6',
+        pithumbsize: '500',
+        pilimit: '10',
         wbptterms: 'description',
         gpssearch: query,
         gpslimit: '6',
@@ -69,13 +69,13 @@ $(function() {
           .prop('id', 'card-' + i)
         newCard.find( '.card-title' )
           .html(pages[page].title)
-        newCard.find( '.btn' )
+        newCard.find( '.link' )
           .prop('href', pages[page].canonicalurl)
         newCard.find( '.card-text' )
           .html(pages[page].extract)
         if (pages[page].thumbnail) {
-          newCard.find( '.card-img-top' )
-            .prop('src', pages[page].thumbnail.source)
+          newCard.find( '.img-card' )
+            .css( 'background-image', 'url('+pages[page].thumbnail.source+')' )
         }
         newCard.appendTo('section#searches').show()
       }
