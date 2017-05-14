@@ -68,16 +68,11 @@ a {
   text-decoration: none;
 }
 
-.nicejob {
-  text-decoration: line-through;
-}
-
 .search-results {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-div.wiki-card {
-  background-color: lightyellow;
-  border-radius: 5px;
+.card {
+  margin-bottom: 20px;
 }

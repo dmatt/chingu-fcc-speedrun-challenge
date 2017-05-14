@@ -30,7 +30,7 @@ $(function() {
         exsentences: '1',
         ppprop: 'displaytitle',
         piprop: 'thumbnail',
-        pithumbsize: '160',
+        pithumbsize: '300',
         pilimit: '6',
         wbptterms: 'description',
         gpssearch: query,
@@ -55,7 +55,7 @@ $(function() {
   // Paginates through each page, callback to renderCard()
   function paginate(data /* , textStatus, jqXHR */) {
     console.log(data);
-    $('div#searches').empty();
+    $('section#searches').empty();
     let pages = Object.keys(data.query.pages);
     pages.forEach(function(page, i){
       renderCard(data.query.pages, page, i);
@@ -76,11 +76,8 @@ $(function() {
         if (pages[page].thumbnail) {
           newCard.find( '.card-img-top' )
             .prop('src', pages[page].thumbnail.source)
-        } else {
-          newCard.find( '.card-img-top' )
-            .prop('src', '')
         }
-        newCard.appendTo('div#searches').show()
+        newCard.appendTo('section#searches').show()
       }
       
   // handles search input during typing, callback to wikiQuery()
@@ -91,7 +88,7 @@ $(function() {
   // gets previous searches that are stored in the database
   $.get('/searches', function(searches) {
     searches.forEach(function(search) {
-      $('<div class="wiki-card"></div>').text(search).appendTo('div#searches');
+      $('<li></li>').text(search).appendTo('ul#previous-searches');
     });
   });
 

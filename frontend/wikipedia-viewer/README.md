@@ -29,7 +29,13 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 	- the `images` object includes filenames in `.svg` and need to have `.png` appended to the end to prevent a 404 response
 	- sometimes the file path did not match the md5 hash string. I think this might be the case for some images like icons, which is just a problem that results from not knowing what the right image is.
 - I wasn't able to find the answer in documentation but I found the right call parameters by looking at the calls made on https://www.wikipedia.org/ when using that search form. By including the `pageimages` property and the `piprop: 'thumbnail'` parameter Wikipedia would return a thumbnail source URL if there was one available.
-
+- Recently, whenever plopping ajax data onto a page, I find myself creating custom "card" elements that have some common characteristics:
+	- an image
+	- a title	
+	- a description
+	- a button
+- conveniently enough, Bootstap (v4-alpha) has a [card](https://v4-alpha.getbootstrap.com/components/card) component that's easy to use and flexible. I put every WikiPedia article description, link, and image into one of these cards.
+- This was the first time I really ever tried using [HTML5 semantic elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) for sectioning my page. I also learned that it's perfectly fine to [add bootsrap classes to any semantic element](http://stackoverflow.com/questions/22133639/bootstrap-and-html5-semantic-tags), which saves one from drowning in a sea of bootsrap row and column `div`s.
 
 TODO:
 
