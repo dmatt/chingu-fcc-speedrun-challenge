@@ -68,7 +68,7 @@ $(function() {
         newCard
           .prop('id', 'card-' + i)
         newCard.find( '.card-title' )
-          .prop('text', pages[page].title)
+          .html(pages[page].title)
         newCard.find( '.btn' )
           .prop('href', pages[page].canonicalurl)
         newCard.find( '.card-text' )
