@@ -19,11 +19,9 @@ $(function() {
         action: 'query',
         format: 'json',
         generator: 'prefixsearch',
-        prop: 'extracts|info|pageprops|pageimages|iwlinks',
-        iwprop: 'url',
-        inprop: 'url',
-        iwprefix: true,
-        iwlimit: '10',
+        prop: 'extracts|info|pageprops|pageimages',
+        pllimit: '10',
+        inprop: 'url',  
         redirects: true,
         exintro: true,
         explaintext: true,
@@ -34,12 +32,38 @@ $(function() {
         pilimit: '10',
         wbptterms: 'description',
         gpssearch: query,
-        gpslimit: '6',
+        gpslimit: '10',
         exlimit: 'max',
         imlimit: 'max',        
         origin: '*',
       },
       success: paginate
+    })
+    .done(function() {
+      console.log("done");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    })
+  }
+
+  // AJAX search query to WikiPedia, callback to paginate()
+  function wikiRandomQuery() {
+    $.ajax({
+      url: 'https://en.wikipedia.org/w/api.php',
+      type: 'GET',
+      dataType: 'json',
+      data: {
+        action: 'query',
+        format: 'json',
+        list: 'random',
+        rnlimit: '1',
+        origin: '*'
+      },
+      success: searchRandom
     })
     .done(function() {
       console.log("done");
@@ -62,6 +86,12 @@ $(function() {
     });
   }
 
+  // Takes random article and adds it to search input, implicit callback to wikiQuery()
+  function searchRandom(data /* , textStatus, jqXHR */) {
+    console.log(data);
+    $('input').val(data.query.random['0'].title).trigger( 'change' );
+  }
+
   // Creates and appends card element for each page of data, callback to imageQuery()
   function renderCard(pages, page, i) {
         newCard = cardTemplate.clone().hide()
@@ -81,10 +111,17 @@ $(function() {
       }
       
   // handles search input during typing, callback to wikiQuery()
-  $('input').keyup(function(event) {
-    wikiQuery($('input').val());
+  $('input').on('keyup change', function(event) {
+    if ($('input').val()) {
+      wikiQuery($('input').val());
+    }
   });
-  
+
+  // handles click on during typing, callback to wikiRandomQuery()
+  $('#wiki-random').click(function(event) {
+    wikiRandomQuery();
+  });
+
   // gets previous searches that are stored in the database
   $.get('/searches', function(searches) {
     searches.forEach(function(search) {
