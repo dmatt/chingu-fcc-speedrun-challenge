@@ -96,6 +96,10 @@ $(function() {
   // Creates and appends card element for each page of data, callback to imageQuery()
   function renderCard(pages, page, i) {
         newCard = cardTemplate.clone().hide()
+        var extract
+        pages[page].extract.split(' ').forEach(function(word) {
+          extract += '<span>'+word+' </span>'
+        })
         newCard
           .prop('id', 'card-' + i)
         newCard.find( '.card-title' )
@@ -103,7 +107,7 @@ $(function() {
         newCard.find( '.link' )
           .prop('href', pages[page].canonicalurl)
         newCard.find( '.card-text' )
-          .html(pages[page].extract)
+          .html(extract)
         if (pages[page].thumbnail) {
           newCard.find( '.img-card' )
             .css( 'background-image', 'url('+pages[page].thumbnail.source+')' )
@@ -121,6 +125,16 @@ $(function() {
   // handles click on during typing, callback to wikiRandomQuery()
   $('#wiki-random').click(function(event) {
     wikiRandomQuery();
+  });
+
+  // handles hover and hover off on span words, adds/removes class to highlight the word
+  // TODO: some kind of delegated event thing for elements added later http://api.jquery.com/on/
+  $( 'span' ).hover(function(e) {
+    console.log('hover happened', event)
+    e.target.classList.value = 'mark';
+  }, function(e) {
+    console.log('hover happened', event)
+    e.target.classList.value = '';
   });
 
   // gets previous searches that are stored in the database
