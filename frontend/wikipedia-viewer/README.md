@@ -39,17 +39,17 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 
 TODO:
 
-- [ ] a nice search bar
+- [X] a nice search bar
 - [X] realtime search suggestions
 - [ ] funny button for Random wiki article view
-- [ ] clicking article opens a short description
+- [X] clicking article opens a short description
 - [ ] clicking linked keyword in short description (re-searches & displays) new term description
 - [ ] track "deepness". Deepness = (search query * 1) + (search click * 2)
 - [ ] donate to WikiPedia link (counter?)
 
 TODO (nice to haves):
 
-- [ ] search autocomplete
+- [X] search autocomplete (sorta)
 - [ ] a calousel set for interesting wikipedia articles for that day to kickstart interest
 
 Components:

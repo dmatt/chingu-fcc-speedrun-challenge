@@ -33,13 +33,13 @@
             </h1>
             <p class="lead">What are you curious about?</p>
             <div class="row">
-              <form class="col-centered form-inline w-50">
-                <div class="form-group col-centered">
+              <form class="col-centered form-inline">
+                <div class="form-group col-centered w-100">
                   <input type="search" class="form-control" id="wiki-search-form" placeholder="Search">
-                  <button type="button" class="btn btn-secondary" id="wiki-random">Random</button>
                 </div>
               </form>
             </div>
+            <button type="button" class="btn btn-secondary" id="wiki-random">🔀</button>
             <p class="lead">Click on <mark>words</mark> to dive deeper.</p>
           </div>
         </div>
@@ -56,10 +56,26 @@
             </div>
         </section>
 
-        <aside class="col-lg-2 col-md-2 col-sm-12">
-          <h5>Recent searches</h5>
-          <ul id="previous-searches">
-          </ul>
+        <aside id="share-aside" class="col-lg-2 col-md-2 col-sm-12">
+          <div class="row">
+            <h5>Recent searches</h5>
+            <ul id="previous-searches">
+            </ul>
+          </div>
+          <div class="row">
+            <h5>Deepness</h5>
+            <p id="deepness">
+            1
+            </p>
+            <h5>Share</h5>
+            <p id="share">
+            🐦
+            </p>
+            <h5>Powered by WikiPedia - Donate</h5>
+            <p id="wiki-donate">
+            🌍
+            </p>
+          </div>
         </aside>
 
       </main>
