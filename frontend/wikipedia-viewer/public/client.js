@@ -85,6 +85,8 @@ $(function() {
     pages.forEach(function(page, i){
       renderCard(data.query.pages, page, i);
     });
+    $(".word_split").lettering('words');
+    wordHandler();
   }
 
   // Takes random article and adds it to search input, implicit callback to wikiQuery()
@@ -96,10 +98,6 @@ $(function() {
   // Creates and appends card element for each page of data, callback to imageQuery()
   function renderCard(pages, page, i) {
         newCard = cardTemplate.clone().hide()
-        var extract
-        pages[page].extract.split(' ').forEach(function(word) {
-          extract += '<span>'+word+' </span>'
-        })
         newCard
           .prop('id', 'card-' + i)
         newCard.find( '.card-title' )
@@ -107,7 +105,7 @@ $(function() {
         newCard.find( '.link' )
           .prop('href', pages[page].canonicalurl)
         newCard.find( '.card-text' )
-          .html(extract)
+          .html(pages[page].extract)
         if (pages[page].thumbnail) {
           newCard.find( '.img-card' )
             .css( 'background-image', 'url('+pages[page].thumbnail.source+')' )
@@ -116,26 +114,31 @@ $(function() {
       }
       
   // handles search input during typing, callback to wikiQuery()
-  $('input').on('keyup change', function(event) {
+  $('input').on('keyup change', function(e) {
     if ($('input').val()) {
       wikiQuery($('input').val());
     }
   });
 
   // handles click on during typing, callback to wikiRandomQuery()
-  $('#wiki-random').click(function(event) {
+  $('#wiki-random').click(function(e) {
     wikiRandomQuery();
   });
 
   // handles hover and hover off on span words, adds/removes class to highlight the word
   // TODO: some kind of delegated event thing for elements added later http://api.jquery.com/on/
-  $( 'span' ).hover(function(e) {
-    console.log('hover happened', event)
-    e.target.classList.value = 'mark';
-  }, function(e) {
-    console.log('hover happened', event)
-    e.target.classList.value = '';
-  });
+  function wordHandler() {
+    $( 'span' ).hover(function(e) {
+      console.log('hover happened', e)
+      $(e.target).addClass('marked');
+    }, function(e) {
+      console.log('hover happened', e)
+      $(e.target).removeClass('marked');
+    });
+    $( 'span' ).click(function(e) {
+      $('input').val($(e.target).text()).trigger( 'change' );
+    });
+  }
 
   // gets previous searches that are stored in the database
   $.get('/searches', function(searches) {
