@@ -24,19 +24,11 @@ body {
 h1 {
   font-weight: bold;
   color: pink;
+  margin-bottom: 1rem;
 }
 
 .bold {
   font-weight: bold;
-}
-
-#wiki-search-form {
-  display: block;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  font-size: 16px;
 }
 
 .col-centered{
@@ -44,9 +36,8 @@ h1 {
   margin: 0 auto;
 }
 
-.form-group {
-  padding: 15px;
-  border-radius: 5px;
+.input-group {
+  margin-bottom: 1rem;
 }
 
 li {
@@ -87,10 +78,6 @@ a {
 
 .card {
   margin-bottom: 20px;
-}
-
-button {
-  margin-bottom: 1rem;
 }
 
 .marked {

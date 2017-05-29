@@ -128,14 +128,14 @@ $(function() {
   // handles hover and hover off on span words, adds/removes class to highlight the word
   // TODO: some kind of delegated event thing for elements added later http://api.jquery.com/on/
   function wordHandler() {
-    $( 'span' ).hover(function(e) {
+    $( '.word_split > span' ).hover(function(e) {
       console.log('hover happened', e)
       $(e.target).addClass('marked');
     }, function(e) {
       console.log('hover happened', e)
       $(e.target).removeClass('marked');
     });
-    $( 'span' ).click(function(e) {
+    $( '.word_split > span' ).click(function(e) {
       $('input').val($(e.target).text()).trigger( 'change' );
     });
   }
