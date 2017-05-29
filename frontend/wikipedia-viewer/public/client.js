@@ -123,6 +123,7 @@ $(function() {
   // handles click on during typing, callback to wikiRandomQuery()
   $('#wiki-random').click(function(e) {
     wikiRandomQuery();
+    keepScore();
   });
 
   // handles hover and hover off on span words, adds/removes class to highlight the word
@@ -137,7 +138,15 @@ $(function() {
     });
     $( '.word_split > span' ).click(function(e) {
       $('input').val($(e.target).text()).trigger( 'change' );
+      keepScore()
     });
+  }
+
+  let score = 0;
+
+  function keepScore() {
+    score++
+    $('#deepness').text(score)
   }
 
   // gets previous searches that are stored in the database
