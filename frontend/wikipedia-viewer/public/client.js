@@ -156,15 +156,30 @@ $(function() {
     });
   });
 
-// consider storing a search when the user is done typing a query. How?
+  // consider storing a search when the user is done typing a query. How?
 
-/*  $('form').submit(function(event) {
+  $('form').submit(function(event) {
     event.preventDefault();
     var search = $('input').val();
-    $.post('/searches?' + $.param({search: search}), function() {
-      $('<li></li>').text(search).appendTo('ul#searches');
-      $('input').val('');
-      $('input').focus();
-    });
-  });*/
+    
+  });
+
+  //setup before functions
+  var typingTimer;
+  var doneTypingInterval = 5000;  //time in ms (5 seconds)
+
+  //on keyup, start the countdown
+  $('input').keyup(function(){
+      clearTimeout(typingTimer);
+      if ($('input').val()) {
+          typingTimer = setTimeout(storeSearch($('input').val()), doneTypingInterval);
+      }
+  });
+
+  //user is "finished typing," do something
+  function storeSearch(query) {
+    $.post('/searches?' + $.param({search: query}), function() {
+          $('<li></li>').text(query).appendTo('ul#previous-searches');
+        });
+  }
 });

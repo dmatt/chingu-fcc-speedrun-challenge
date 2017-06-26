@@ -30,11 +30,7 @@ app.post("/searches", function (request, response) {
 });
 
 // Simple in-memory store for now
-var searches = [
-  "some silly sheep",
-  "tallest mountain",
-  "japanese dishes"
-];
+var searches = [];
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
