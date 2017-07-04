@@ -36,14 +36,16 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 	- a button
 - conveniently enough, Bootstap (v4-alpha) has a [card](https://v4-alpha.getbootstrap.com/components/card) component that's easy to use and flexible. I put every WikiPedia article description, link, and image into one of these cards.
 - This was the first time I really ever tried using [HTML5 semantic elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning) for sectioning my page. I also learned that it's perfectly fine to [add bootsrap classes to any semantic element](http://stackoverflow.com/questions/22133639/bootstrap-and-html5-semantic-tags), which saves one from drowning in a sea of bootsrap row and column `div`s.
+- `setTimeout()` can be used to call a function after a delay. This function returns an ID of the timeout which can be used to clear the "countdown" with `clearTimeout()`. This is handy for delaying a search query until a user is "done" typing (assuming the user is done after about half a second of typing a new character)
+	- I learned that `setTimeout()` takes a callback function, however, you have to provide it a sneaky anonymous function if you want provide that callback a parameter. This took me like 2 hours to figure out... by reading the documentation.
 
 TODO:
 
 - [X] a nice search bar
 - [X] realtime search suggestions
-- [ ] funny button for Random wiki article view
+- [X] funny button for Random wiki article view
 - [X] clicking article opens a short description
-- [ ] clicking linked keyword in short description (re-searches & displays) new term description
+- [X] clicking linked keyword in short description (re-searches & displays) new term description
 - [ ] track "deepness". Deepness = (search query * 1) + (search click * 2)
 - [ ] donate to WikiPedia link (counter?)
 

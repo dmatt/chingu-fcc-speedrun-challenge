@@ -156,30 +156,30 @@ $(function() {
     });
   });
 
-  // consider storing a search when the user is done typing a query. How?
+  // store a search when the user is done typing or clicking a query
 
-  $('form').submit(function(event) {
-    event.preventDefault();
-    var search = $('input').val();
-    
-  });
+  var timeoutID;
 
-  //setup before functions
-  var typingTimer;
-  var doneTypingInterval = 5000;  //time in ms (5 seconds)
-
-  //on keyup, start the countdown
-  $('input').keyup(function(){
-      clearTimeout(typingTimer);
+  //on keyup (and change), start the countdown
+  $('input').on('keyup change', function(){
+      clearSearch();
       if ($('input').val()) {
-          typingTimer = setTimeout(storeSearch($('input').val()), doneTypingInterval);
+          delayedSearch();
       }
   });
 
-  //user is "finished typing," do something
+  function delayedSearch() {
+    timeoutID = window.setTimeout(() => { storeSearch($('input').val()); } , 1000);
+  }
+
+  //user is "finished typing"
   function storeSearch(query) {
     $.post('/searches?' + $.param({search: query}), function() {
           $('<li></li>').text(query).appendTo('ul#previous-searches');
         });
+  }
+
+  function clearSearch() {
+    window.clearTimeout(timeoutID);
   }
 });
