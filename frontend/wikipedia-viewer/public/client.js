@@ -61,7 +61,7 @@ $(function() {
         format: 'json',
         list: 'random',
         rnlimit: '1',
-        rnnamespace: '',
+        rnnamespace: 0,
         origin: '*'
       },
       success: searchRandom
