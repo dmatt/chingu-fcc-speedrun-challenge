@@ -9,9 +9,12 @@
 }
 
 .header {
-  background: transparent url(//c.disquscdn.com/next/de49d54/marketing/assets/img/home/hero-bg.png) center center no-repeat;
+/*  background: transparent url(//c.disquscdn.com/next/de49d54/marketing/assets/img/home/hero-bg.png) center center no-repeat;
   background-size: 120%;
-  background-color: lightcyan;
+  background-color: lightcyan;*/
+  background: #6190E8;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6190E8, #A7BFE8);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6190E8, #A7BFE8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin-bottom: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
 }
@@ -23,7 +26,7 @@ body {
 
 h1 {
   font-weight: bold;
-  color: pink;
+  color: papayawhip;
   margin-bottom: 1rem;
 }
 
@@ -51,11 +54,11 @@ footer {
 }
 
 footer > a {
-  color: #BBBBBB;
+  color: #6190E8;
 }
 
 a {
-  color: #BBBBBB
+  color: #6190E8;
   text-decoration: none;
 }
 
@@ -81,5 +84,10 @@ a {
 }
 
 .marked {
-  background-color: #fcf8e3;
+  background-color: papayawhip;
 }
+
+mark {
+  background-color: papayawhip!important;
+}
+
