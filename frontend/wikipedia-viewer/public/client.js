@@ -123,37 +123,36 @@ $(function() {
   // handles click on during typing, callback to wikiRandomQuery()
   $('#wiki-random').click(function(e) {
     wikiRandomQuery();
-    keepScore();
   });
 
   // handles hover and hover off on span words, adds/removes class to highlight the word
   // TODO: some kind of delegated event thing for elements added later http://api.jquery.com/on/
   function wordHandler() {
     $( '.word_split > span' ).hover(function(e) {
-      console.log('hover happened', e)
       $(e.target).addClass('marked');
     }, function(e) {
-      console.log('hover happened', e)
       $(e.target).removeClass('marked');
     });
     $( '.word_split > span' ).click(function(e) {
       $('input').val($(e.target).text()).trigger( 'change' );
-      keepScore()
     });
   }
 
   let score = 0;
 
   function keepScore() {
-    score++
-    $('#deepness').text(score)
+    score++;
+    $('#deepness-score').text(score);
+    score == 1 ? $('#level-plural').text('') : $('#level-plural').text('s');
   }
 
   // gets previous searches that are stored in the database
   $.get('/searches', function(searches) {
     searches.forEach(function(search) {
-      $('<li></li>').text(search).appendTo('ul#previous-searches');
+      keepScore()
+      $('<li></li>').text(search).prependTo('ul#previous-searches');
     });
+    $( '#deepness' ).effect( "shake", { direction: "up", times: 2, distance: 5});
   });
 
   // store a search when the user is done typing or clicking a query
@@ -175,7 +174,9 @@ $(function() {
   //user is "finished typing"
   function storeSearch(query) {
     $.post('/searches?' + $.param({search: query}), function() {
-          $('<li></li>').text(query).appendTo('ul#previous-searches');
+          $('<li></li>').text(query).prependTo('ul#previous-searches');
+          $( '#deepness' ).effect( "shake", { direction: "up", times: 2, distance: 5});
+          keepScore();
         });
   }
 
