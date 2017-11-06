@@ -33,5 +33,4 @@ TODO:
 
 TODO (nice to haves):
 
-- [ ] wow
-- [ ] wow
+- [ ] Loads embed stream live on page
