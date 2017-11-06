@@ -20,4 +20,18 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 
 ## Notes
 
-Initial commit
+- Hi
+- Bye
+
+TODO:
+
+- [ ] find some top 10 leaderboard designs that look nice
+- [ ] Figure out which stats are most important on twitch
+- [ ] API request that gets top 10, put usernames into array
+- [ ] API request that gets status for top 10 users
+- [ ] If user doesn't exist, have error state
+
+TODO (nice to haves):
+
+- [ ] wow
+- [ ] wow
