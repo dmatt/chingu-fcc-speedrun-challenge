@@ -68,7 +68,7 @@ Copy this table as needed to make a separate table for each team member for reco
 |      |  [ ]()  | [Build a Personal Portfolio Webpage](./frontend/portfolio) |  |
 |      |  [ ]()  | [Build a Random Quote Machine](./frontend/random-quote-machine) |  |
 |      |  [A Simple Weather Forecast Page Using Dark Sky API](http://dmatt.github.io/apis/2017/01/15/Simple-weather-forecast-with-darksky-API.html)  | [Show the Local Weather](./frontend/local-weather) |  |
-|      |  [ ]()  | [Build a Wikipedia Viewer](./frontend/wikipedia-viewer) |  |
+|      |  [Wikipedia Viewer Knowledge Hole](https://wikipedia-viewer-knowledgehole.glitch.me/)  | [Build a Wikipedia Viewer](./frontend/wikipedia-viewer) |  |
 |      |  [ ]()  | [Use the Twitch.tv JSON API](./frontend/twitch-client) |  |
 |      |  [ ]()  | [Build a JavaScript Calculator](./frontend/calculator) |  |
 |      |  [ ]()  | [Build a Pomodoro Clock](./frontend/pomodoro-clock) |  |
