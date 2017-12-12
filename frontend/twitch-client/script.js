@@ -1,5 +1,4 @@
 let topTenUsers;
-let statsObject = {};
 var twitchApi = 'https://api.twitch.tv/helix/'
 var myHeaders = new Headers({
   "Client-ID": "lnr7ybs8r23c75ogxck7pi5br73rje"
@@ -20,32 +19,39 @@ var topTenChannelsElement = document.querySelector('#twitch-top-10');
 
 // Generic error handling for fetch promise
 var handleErrors = response => {
-  if (!response.ok) {
-      throw Error(response);
-  }
+  if (!response.ok) throw Error(response);
   return response;
 }
 
 // Fetch function that handles HTTP status and network errors
-function fetchAPI(init, api, endpoint, params, targetElement) {
+function fetchAPI(init, api, endpoint, params) {
   fetch(api+endpoint+params, init)
     .then(handleErrors)
     .then(response => response.json())
-    .then(response => HTMLize(response, targetElement))
+    .then(response => HTMLize(response))
     .catch(error => alert(error));
   }
 
 // fetchAPI(twitchInit, twitchApi, 'users', '?login=deinem&id=1');
-fetchAPI(twitchInit, twitchApi, 'streams', '?first=20', topTenChannelsElement);
+fetchAPI(twitchInit, twitchApi, 'streams', '?first=10');
 
 // Loop through data and output on page with corresponding class names
-function HTMLize(response, targetElement) {
-  response.data.forEach(obj =>
-    Object.keys(obj).forEach(attributeName => 
-      targetElement.innerHTML += '<p class="'+ attributeName +'">' + attributeName + obj[attributeName] + '</p>'
+let targetElement = document.querySelector('#place-0');
+
+function HTMLize(response) {
+  response.data.forEach( (obj, i) =>
+    Object.keys(obj).forEach( function (attributeName) {
+      document.querySelector('#place-'+i).innerHTML += '<div class="'+ attributeName +'">' + attributeName + obj[attributeName] + '</div>';
+      document.querySelector('#expand-'+i).addEventListener("click", handleClick, false);
+    }
     )
   );
 }
 
-// in a loop or not give a class to each element filled with text (name, followers, )
-// button handler(target click) { if (target click) hide/show, else open embed }
+/* function handleClick(event) {
+  // open / close specific div with classes
+  console.log(event);
+  let parentClasses = event.srcElement.parentElement.classList;
+  console.log(typeof(parentClasses), parentClasses)
+  (parentClasses.indexOf('expanded') > -1) ? parentClasses.splice(parentClasses.indexOf('expanded'),1,'collapsed') : parentClasses.push('expanded');
+} */
