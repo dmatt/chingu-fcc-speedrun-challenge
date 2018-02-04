@@ -34,3 +34,4 @@ TODO:
 TODO (nice to haves):
 
 - [ ] Loads embed stream live on page
+- [ ] Styles
