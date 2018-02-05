@@ -48,10 +48,8 @@ function HTMLize(response) {
   );
 }
 
-/* function handleClick(event) {
-  // open / close specific div with classes
-  console.log(event);
-  let parentClasses = event.srcElement.parentElement.classList;
-  console.log(typeof(parentClasses), parentClasses)
-  (parentClasses.indexOf('expanded') > -1) ? parentClasses.splice(parentClasses.indexOf('expanded'),1,'collapsed') : parentClasses.push('expanded');
-} */
+function handleClick(event) {
+  // open / close the clicked parent div with every click
+  console.log(event)
+  event.srcElement.nextSibling.classList.toggle('collapsed');
+}

@@ -7,3 +7,7 @@ h1 {
   margin: 20px;
   background-color: lightblue;
 }
+
+.collapsed {
+  display: none;
+}
