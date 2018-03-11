@@ -9,6 +9,10 @@ h1 {
 }
 
 .collapsed {
-  height: 1em;
+  height: 1.25em;
   overflow: hidden;
+}
+
+div {
+  line-height: 1.25;
 }
