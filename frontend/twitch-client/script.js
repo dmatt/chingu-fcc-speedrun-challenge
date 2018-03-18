@@ -41,7 +41,14 @@ let targetElement = document.querySelector('#place-0');
 function HTMLize(response) {
   response.data.forEach( (obj, i) =>
     Object.keys(obj).forEach( function (attributeName) {
-      document.querySelector('#place-'+i).innerHTML += '<div class="'+ attributeName +'">' + attributeName + obj[attributeName] + '</div>';
+      let titleElement = document.createElement("h5");
+      switch (attributeName) {
+        case 'title':
+          titleElement.classList = "card-title";
+          titleElement.innerHTML = obj[attributeName];
+        break;
+      }
+      document.querySelector('#place-'+i).appendChild(titleElement);
       document.querySelector('#expand-'+i).addEventListener("click", handleClick, false);
     }
     )
@@ -51,5 +58,7 @@ function HTMLize(response) {
 function handleClick(event) {
   // open / close the clicked parent div with every click
   console.log(event)
-  event.srcElement.nextSibling.classList.toggle('collapsed');
+  event.srcElement.nextElementSibling.classList.toggle('collapsed');
+  let collapseButtonState = event.srcElement
+  collapseButtonState.innerHTML == '🐵' ? collapseButtonState.innerHTML = '🙈' : collapseButtonState.innerHTML = '🐵';
 }
