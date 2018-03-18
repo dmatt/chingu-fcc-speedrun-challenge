@@ -3,16 +3,23 @@ h1 {
 }
 
 .podium > div {
-  color: blue;
-  margin: 20px;
+  margin: 2rem;
   background-color: lightblue;
 }
 
 .collapsed {
-  height: 1.25em;
+  height: 3rem;
   overflow: hidden;
 }
 
+button {
+  width: 3rem;
+}
+
+html {
+  font-size: 14px
+}
+
 div {
-  line-height: 1.25;
+  padding: .25rem;
 }
