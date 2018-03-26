@@ -22,6 +22,8 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 
 - TIL CSS and JavaScript can not target IDs that start with a number https://stackoverflow.com/questions/22141358/why-can-an-element-id-not-start-with-an-integer. I was using `n-place` for each div ID, and had to update this to `place-n`.
 - To set a div height equal to text height (used in collapsed style), set an explicit `line-height` and use the same value for div `height`
+- `rem` units in CSS are just a unit of whatever the page root font size is, keeps all sizes relative to font size `1rem`, `2.5rem` etc.
+- In script.js I have a function that takes json data, loops through it, and inserts it into pre-created elements. Would probably be better if I used https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template and just cloned templates and insert new data. Simple example of this `index.html` and `components/nav.html` (first time using this html5 feature!).
 
 TODO:
 

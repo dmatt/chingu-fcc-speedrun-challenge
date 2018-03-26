@@ -41,14 +41,20 @@ let targetElement = document.querySelector('#place-0');
 function HTMLize(response) {
   response.data.forEach( (obj, i) =>
     Object.keys(obj).forEach( function (attributeName) {
-      let titleElement = document.createElement("h5");
       switch (attributeName) {
-        case 'title':
+        case 'user_id':
+          let titleElement = document.createElement("h5");
           titleElement.classList = "card-title";
           titleElement.innerHTML = obj[attributeName];
+          document.querySelector('#place-'+i).appendChild(titleElement);
         break;
+        case 'title':
+          let textElement = document.createElement("p");
+          textElement.classList = "card-text";
+          textElement.innerHTML = obj[attributeName];
+          document.querySelector('#place-'+i).appendChild(textElement);
+        break;    
       }
-      document.querySelector('#place-'+i).appendChild(titleElement);
       document.querySelector('#expand-'+i).addEventListener("click", handleClick, false);
     }
     )
