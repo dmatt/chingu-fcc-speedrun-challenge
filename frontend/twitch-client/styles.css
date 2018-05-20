@@ -8,12 +8,11 @@ h1 {
 }
 
 .collapsed {
-  height: 3rem;
-  overflow: hidden;
+  display: none;
 }
 
 html {
-  font-size: 14px
+  font-size: 14px;
 }
 
 div {

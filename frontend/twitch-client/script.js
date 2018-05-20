@@ -64,7 +64,7 @@ function HTMLize(response) {
 function handleClick(event) {
   // open / close the clicked parent div with every click
   console.log(event)
-  event.srcElement.nextElementSibling.classList.toggle('collapsed');
+  event.target.parentElement.querySelector('.card-text').classList.toggle('collapsed');
   let collapseButtonState = event.srcElement
   collapseButtonState.innerHTML == '🐵' ? collapseButtonState.innerHTML = '🙈' : collapseButtonState.innerHTML = '🐵';
 }
