@@ -32,16 +32,27 @@ function fetchAPI(init, api, endpoint, params) {
     .catch(error => alert(error));
   }
 
+// TODO: figure out how to remove HTMLize from fetchAPI and do that after 
 // fetchAPI(twitchInit, twitchApi, 'users', '?login=deinem&id=1');
+// to build user id : display name object
 fetchAPI(twitchInit, twitchApi, 'streams', '?first=10');
 
 // Loop through data and output on page with corresponding class names
 let targetElement = document.querySelector('#place-0');
 
+
 function HTMLize(response) {
   response.data.forEach( (obj, i) =>
     Object.keys(obj).forEach( function (attributeName) {
       switch (attributeName) {
+        case 'thumbnail_url':
+          let thumbnailElement = document.createElement("img");
+          thumbnailElement.classList = "card-text card-img-top";
+          let width = /{width}/gi, height = /{height}/gi;
+          let newthumbnailUrl = obj[attributeName].replace(width, '640');
+          thumbnailElement.src = newthumbnailUrl.replace(height, '360');
+          document.querySelector('#place-'+i).parentNode.prepend(thumbnailElement);
+        break;
         case 'user_id':
           let titleElement = document.createElement("h5");
           titleElement.classList = "card-title";
@@ -53,7 +64,7 @@ function HTMLize(response) {
           textElement.classList = "card-text";
           textElement.innerHTML = obj[attributeName];
           document.querySelector('#place-'+i).appendChild(textElement);
-        break;    
+        break;
       }
       document.querySelector('#expand-'+i).addEventListener("click", handleClick, false);
     }

@@ -1,9 +1,8 @@
-h1 {
-  color: fuchsia;
-}
-
 .podium > div {
   margin: 2rem;
+}
+
+.card {
   background-color: lightblue;
 }
 
@@ -13,8 +12,4 @@ h1 {
 
 html {
   font-size: 14px;
-}
-
-div {
-  padding: .25rem;
 }
