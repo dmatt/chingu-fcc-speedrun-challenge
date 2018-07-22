@@ -2,6 +2,14 @@
   margin: 2rem;
 }
 
+.navbar-brand, .ranking {
+  font-family: 'Press Start 2P', cursive;
+}
+
+#bootstrap-embed-wrapper {
+  margin: 50px;
+}
+
 .card {
   background-color: lightblue;
 }
@@ -12,4 +20,5 @@
 
 html {
   font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
 }

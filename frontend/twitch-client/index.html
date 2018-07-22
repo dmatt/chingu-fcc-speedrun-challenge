@@ -9,9 +9,11 @@
     <script src="/script.js" defer></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="import" href="/components/nav.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Press+Start+2P" rel="stylesheet">
   </head>
   <body>
       <div id="navigation"></div>
+      
       <script>
         // Instantiate the nav with the existing HTML div#navigation
         let link = document.querySelector('link[rel="import"]');
@@ -29,114 +31,113 @@
 
       </script>
   <div class="container">
-  <div id="navigation">
+  <div id="navigation"></div>
+    <!-- Add a placeholder for the Twitch embed -->
+    <div id="bootstrap-embed-wrapper" class="embed-responsive embed-responsive-16by9">
+      <div id="twitch-embed" class-"embed-responsive-item"></div>
+    </div>
+    <!-- Load the Twitch embed script -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+    <script type="text/javascript">
+      new Twitch.Embed("twitch-embed", {
+        width: 854,
+        height: 480,
+        channel: "monstercat"
+      });
+    </script>
     <div id="twitch-top-10" class="podium">
+      <h3 class="ranking">#1</h3>      
       <div class="row">
-        <div class="col-sm-12 col-md-6">
           <div class="card">
             <div id="place-0" class="place-card card-body">
                 <button id="expand-0" class="expand btn btn-sm float-right">🙈</button>
+                <button id="watch-0" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>
+      <h3 class="ranking">#2</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-1" class="place-card card-body">
+              <button id="expand-1" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-1" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>          
+      <h3 class="ranking">#3</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-2" class="place-card card-body">
+              <button id="expand-2" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-2" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>
+      <h3 class="ranking">#4</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-3" class="place-card card-body">
+              <button id="expand-3" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-3" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>          
+      <h3 class="ranking">#5</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-4" class="place-card card-body">
+              <button id="expand-4" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-4" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>          
+      <h3 class="ranking">#6</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-5" class="place-card card-body">
+              <button id="expand-5" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-5" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>          
+      <h3 class="ranking">#7</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-6" class="place-card card-body">
+              <button id="expand-6" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-6" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>          
+      <h3 class="ranking">#8</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-7" class="place-card card-body">
+              <button id="expand-7" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-7" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>          
+      <h3 class="ranking">#9</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-8" class="place-card card-body">
+              <button id="expand-8" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-8" class="watch btn btn-primary float-right">Watch</button>
+            </div>
+          </div>
+      </div>          
+      <h3 class="ranking">#10</h3>      
+      <div class="row">
+          <div class="card">
+            <div id="place-9" class="place-card card-body">
+              <button id="expand-9" class="expand btn btn-sm float-right">🙈</button>
+              <button id="watch-9" class="watch btn btn-primary float-right">Watch</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-1" class="place-card card-body">
-              <button id="expand-1" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-2" class="place-card card-body">
-              <button id="expand-2" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-3" class="place-card card-body">
-              <button id="expand-3" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-4" class="place-card card-body">
-              <button id="expand-4" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-5" class="place-card card-body">
-              <button id="expand-5" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-6" class="place-card card-body">
-              <button id="expand-6" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-7" class="place-card card-body">
-              <button id="expand-7" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-8" class="place-card card-body">
-              <button id="expand-8" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="card">
-            <div id="place-9" class="place-card card-body">
-              <button id="expand-9" class="expand btn btn-sm float-right">🙈</button>
-            </div>
-          </div>
-        </div>
-      </div>          
-    </div>
-    <!-- Add a placeholder for the Twitch embed - docs https://dev.twitch.tv/docs/embed -->
-    <div id="twitch-embed"></div>
-    
-        <!-- Load the Twitch embed script -->
-        <!-- <script src="https://embed.twitch.tv/embed/v1.js"></script> -->
-    
-        <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. 
-        <script type="text/javascript">
-          new Twitch.Embed("twitch-embed", {
-            width: 854,
-            height: 480,
-            channel: "doublelift"
-          });
-        </script>
-        -->
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
