@@ -24,18 +24,21 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 - To set a div height equal to text height (used in collapsed style), set an explicit `line-height` and use the same value for div `height`
 - `rem` units in CSS are just a unit of whatever the page root font size is, keeps all sizes relative to font size `1rem`, `2.5rem` etc.
 - In script.js I have a function that takes json data, loops through it, and inserts it into pre-created elements. Would probably be better if I used https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template and just cloned templates and insert new data. Simple example of this `index.html` and `components/nav.html` (first time using this html5 feature!).
+- Can add event listenters to many elements within a class like `document.querySelectorAll('.expand, .watch').forEach(function() {addEventListener( [...] )`
 
 TODO:
 
-- [ ] find some top 10 leaderboard designs that look nice
+- [X] find some top 10 leaderboard designs that look nice
 - [ ] Figure out which stats are most important on twitch
-- [ ] API request that gets top 10, put usernames into array
-- [ ] API request that gets status for top 10 users
-- [ ] If user doesn't exist, have error state
+- [X] API request that gets top 10, put usernames into array
+- [X] API request that gets status for top 10 users
+- [X] If user doesn't exist, have error state
+- [ ] Add freeCodeCamp user status
+- [ ] Style cleanup
 
 TODO (nice to haves):
 
-- [ ] Loads embed stream live on page
-- [ ] Styles
+- [X] Loads embed stream live on page
+- [X] Styles
 - [ ] Link to dmatt.github.io
 
