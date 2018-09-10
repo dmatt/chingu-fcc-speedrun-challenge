@@ -31,7 +31,7 @@ function fetchAPI(init, api, endpoint, params) {
     .then(response => 
       HTMLize(response)
     )
-    .catch(error => alert(error));
+    .catch(error => console.log(error));
   }
 
 // TODO: figure out how to remove HTMLize from fetchAPI and do that after 
@@ -83,7 +83,9 @@ function handleClick(e) {
   }
   // start a new twitch viewer with the desired channel
   else if (e.target.classList.contains("watch")) {
-    let nextChannel = streams[e.target.id.split("-")[1]].channel.name
+    console.log(e.target)
+    let nextChannel;
+    e.target.id == "watch-10" ? nextChannel = "freecodecamp" : nextChannel = streams[e.target.id.split("-")[1]].channel.name
     document.querySelector("#twitch-embed").innerHTML = null;
     new Twitch.Embed("twitch-embed", {
       width: 600,
