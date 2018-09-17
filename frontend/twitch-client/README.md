@@ -25,11 +25,14 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 - `rem` units in CSS are just a unit of whatever the page root font size is, keeps all sizes relative to font size `1rem`, `2.5rem` etc.
 - In script.js I have a function that takes json data, loops through it, and inserts it into pre-created elements. Would probably be better if I used https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template and just cloned templates and insert new data. Simple example of this `index.html` and `components/nav.html` (first time using this html5 feature!).
 - Can add event listenters to many elements within a class like `document.querySelectorAll('.expand, .watch').forEach(function() {addEventListener( [...] )`
+- Adding if/else inside the generic api call function isn't a bad way to control the initiation of the rest of HTML functions on the page (line 37 of script.js)
+- VSCode + [Chrome Debugging for VS Code](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code) tools is awesome (my first time using VS Code debug!). You can set breakpoints while coding simultaneously and viewing "intellisense" documentation on JavaScript... saves a ton of time and clicking and switching apps.
+- renderTopTenData function was my first time trying to make a (somewhat) generic way to iterate through an API reponse object and manipulate the DOM. Easy to add new elements to the page by simply adding copy/pasting `case`s to the `switch`. Maybe there's a more common method / library that does this?
 
 TODO:
 
 - [X] find some top 10 leaderboard designs that look nice
-- [ ] Figure out which stats are most important on twitch
+- [X] Figure out which stats are most important on twitch
 - [X] API request that gets top 10, put usernames into array
 - [X] API request that gets status for top 10 users
 - [X] If user doesn't exist, have error state
@@ -40,5 +43,5 @@ TODO (nice to haves):
 
 - [X] Loads embed stream live on page
 - [X] Styles
-- [ ] Link to dmatt.github.io
+- [X] Link to dmatt.github.io
 

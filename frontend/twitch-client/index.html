@@ -13,7 +13,6 @@
   </head>
   <body>
       <div id="navigation"></div>
-      
       <script>
         // Instantiate the nav with the existing HTML div#navigation
         let link = document.querySelector('link[rel="import"]');
@@ -38,13 +37,6 @@
     </div>
     <!-- Load the Twitch embed script -->
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
-    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
-    <script type="text/javascript">
-      new Twitch.Embed("twitch-embed", {
-        width: 600,
-        channel: "monstercat",
-      });
-    </script>
     <div id="twitch-top-10" class="podium">
       <h3 class="ranking">#1</h3>      
       <div class="row">
@@ -82,7 +74,7 @@
             </div>
           </div>
       </div>          
-      <h3 class="ranking">#5</h3>      
+      <h3 class="ranking">#5</h3>
       <div class="row">
           <div class="card">
             <div id="place-4" class="place-card card-body">
@@ -91,7 +83,7 @@
             </div>
           </div>
       </div>          
-      <h3 class="ranking">#6</h3>      
+      <h3 class="ranking">#6</h3>
       <div class="row">
           <div class="card">
             <div id="place-5" class="place-card card-body">
@@ -136,15 +128,16 @@
             </div>
           </div>
         </div>
-      <h3 class="ranking">Free Code Camp</h3>      
+      <h3 class="ranking">Free Code Camp</h3> 
       <div class="row">
           <div class="card">
             <div id="place-10" class="place-card card-body">
-              <button id="expand-10" class="expand btn btn-sm float-right">🙈</button>
+              <p id="fcc-status">Status: 🔴 offline</p>
               <button id="watch-10" class="watch btn btn-primary float-right">Watch ⤴</button>
             </div>
           </div>
       </div>
+      <footer class="float-right">Made by <a href="https://dmatt.github.io">Danny</a> for <a href="https://freecodecamp.org" >freeCodeCamp</a></footer>      
       </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
