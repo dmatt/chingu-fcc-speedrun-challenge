@@ -3,11 +3,25 @@
 }
 
 .navbar-brand, .ranking {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P';
+
+}
+
+a.navbar-brand:hover {
+  text-decoration: underline;
+  color: white;
 }
 
 #bootstrap-embed-wrapper {
   margin: 50px;
+}
+
+.navbar-brand {
+  color: #d3cae8;
+}
+
+#navigation {
+  background-color: #4b367c;
 }
 
 .card {
@@ -16,6 +30,15 @@
 
 .collapsed {
   display: none;
+}
+
+button.twitchy {
+  background: #4b367c;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #fff;
+  margin: 2px;
+  line-height: normal;
 }
 
 html {

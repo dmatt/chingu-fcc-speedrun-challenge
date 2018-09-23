@@ -36,8 +36,8 @@ TODO:
 - [X] API request that gets top 10, put usernames into array
 - [X] API request that gets status for top 10 users
 - [X] If user doesn't exist, have error state
-- [ ] Add freeCodeCamp user status
-- [ ] Style cleanup
+- [X] Add freeCodeCamp user status
+- [X] Style cleanup
 
 TODO (nice to haves):
 
