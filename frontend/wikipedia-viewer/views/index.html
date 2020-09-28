@@ -9,7 +9,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+    <head>    
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37606906-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-37606906-6');
+    </script>
     <title>WikiPedia Knowledge Hole!</title>
     <meta name="description" content="A cool thing made with Glitch">
     <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
@@ -28,11 +37,11 @@
     <div class="container-fluid">
       <header>
         <div class="row header text-center">
-          <div class="col-lg-12">
+          <div class="col-lg-12 mt-5 mb-5">
             <h1 class="display-2">
               Wikipedia Knowledge Hole
             </h1>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-centered col-lg-6">
                   <div class="input-group">
                     <input id="wiki-search-form" type="search" class="form-control" placeholder="What are you curious about?">
@@ -50,7 +59,7 @@
       <!-- TODO: Make these cards stretch when only 1 is returned -->
       <main class="row search-results">
         <section id="searches" class="col-lg-10 col-md-10 col-sm-12 card-columns">
-            <div id="card-template" class="card" display: none;">
+            <div id="card-template" class="card" style="display: none;">
               <div class="card-block">
               <a href="#" class="link" target="_blank"><div class="img-card"></div></a>
                 <a href="#" class="link" target="_blank"><h4 class="card-title">Card title</h4></a>
@@ -65,9 +74,8 @@
             </ul>
         </aside>
       </main>
-
-      <footer>
-        <a href="https://wikimediafoundation.org/wiki/Ways_to_Give">
+      <footer>   
+        <a href="https://donate.wikimedia.org/">
         𝐖 Donate to Wikipedia
         </a>
 
@@ -75,7 +83,6 @@
          🎏 Remix this in Glitch
         </a>
       </footer>
-
     </div>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://cdn.rawgit.com/jbt/js-crypto/master/md5-min.js"></script>
@@ -83,3 +90,4 @@
     <script src="/client.js"></script>
   </body>
 </html>
+
